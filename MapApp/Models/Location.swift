@@ -7,7 +7,7 @@
 import Foundation
 import MapKit
 
-struct location{
+struct Location{
     let name: String
     let cityName: String
     let coordinates: CLLocationCoordinate2D
