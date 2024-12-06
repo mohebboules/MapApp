@@ -17,14 +17,15 @@ class LocationsViewModel: ObservableObject{
             updateMapRegion(location: mapLocation)
         }
     }
-    
+    // Currrent Region on map
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     
+    @Published var showLocationsList: Bool = false
     init(){
         let locations = LocationsDataService.locations
         self.locations = locations
-
+        
         guard let firstLocation = locations.first else {
             let defaultLocation = Location(
                 name: "Default",
@@ -32,7 +33,7 @@ class LocationsViewModel: ObservableObject{
                 coordinates: CLLocationCoordinate2D(latitude: 0, longitude: 0),
                 description: "The Colosseum is an oval amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is still the largest standing amphitheatre in the world today, despite its age.",
                 imageNames: [
-                   
+                    
                 ],
                 link: "https://en.wikipedia.org/wiki/"
             )
@@ -50,6 +51,17 @@ class LocationsViewModel: ObservableObject{
             mapRegion = MKCoordinateRegion(
                 center: location.coordinates,
                 span: mapSpan)
+        }
+    }
+    func toggleLocationsList(){
+        withAnimation(.easeInOut){
+            showLocationsList = !showLocationsList
+        }
+    }
+    func showNextLocation(location: Location){
+        withAnimation(.easeInOut){
+            mapLocation = location
+            showLocationsList = false
         }
     }
 }
