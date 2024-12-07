@@ -24,6 +24,9 @@ struct LocationsView: View {
                 locationPreiviewStack
             }
         }
+        .sheet(item: $vm.sheetLocation) { location in
+            LocationDetailView(location: location)
+        }
     }
 }
 
