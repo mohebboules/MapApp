@@ -20,7 +20,13 @@ MapApp is an iOS application built with SwiftUI that provides users with an inte
 ## 📷 Screenshots
 
 ### Home Screen
-<img src="assets/screenshots/home.png" width="300">
+<img src="assets/screenshots/HomeView.png" width="300">
+
+### Location Select
+<img src="assets/screenshots/LocationSelect.png" width="300">
+
+### Location Details
+<img src="assets/screenshots/LocationDetails.png" width="300">
 
 ## 🏗️ Installation & Setup
 
